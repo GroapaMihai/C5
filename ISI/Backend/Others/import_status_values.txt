@@ -1,3 +1,0 @@
-INSERT INTO status VALUES ((SELECT nextval('seq_status')), 'Available');
-INSERT INTO status VALUES ((SELECT nextval('seq_status')), 'In transit');
-INSERT INTO status VALUES ((SELECT nextval('seq_status')), 'Delivered');
