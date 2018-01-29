@@ -1,0 +1,132 @@
+<div ng-include="'views/coordinatorMenu.html'"></div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Add delivery</h2>
+    </div>
+    <div class="panel-body">
+        <ng-form name="deliveryAddForm">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': deliveryAddForm.startingCountry.$invalid }">
+                        <label for="startingCountry">Starting Country:</label>
+                        <select id="startingCountry" name="startingCountry" class="form-control" ng-model="selectedStartingCountryName" ng-change="updateStartingAddressesList()">
+                            <option value="">--- Select starting country ---</option>
+                            <option value="{{startingCountry.name}}" ng-repeat="startingCountry in countries">
+                                {{startingCountry.name}}
+                            </option>
+                        </select>
+                        <span class="help-block" ng-show="deliveryAddForm.startingCountry.$error.required
+                             && deliveryAddForm.startingCountry.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': deliveryAddForm.destinationCountry.$invalid }">
+                        <label for="destinationCountry">Destination Country:</label>
+                        <select id="destinationCountry" name="destinationCountry" class="form-control" ng-model="selectedDestinationCountryName" ng-change="updateDestinationAddressesList()">
+                            <option value="">--- Select destination country ---</option>
+                            <option value="{{destinationCountry.name}}" ng-repeat="destinationCountry in countries">
+                                {{destinationCountry.name}}
+                            </option>
+                        </select>
+                        <span class="help-block" ng-show="deliveryAddForm.destinationCountry.$error.required
+                             && deliveryAddForm.destinationCountry.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': deliveryAddForm.startingAddress.$invalid }">
+                        <label for="startingCity">Starting City:</label>
+                        <select id="startingCity" name="startingCity" class="form-control" ng-model="selectedStartingAddressId" ng-change="updateStartingAddress()">
+                            <option value="0">--- Select starting city ---</option>
+                            <option value={{startingAddress.id}} ng-repeat="startingAddress in startingAddresses">
+                                {{startingAddress.city}}
+                            </option>
+                        </select>
+                        <span class="help-block" ng-show="deliveryAddForm.startingAddress.$error.required
+                             && deliveryAddForm.startingAddress.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': deliveryAddForm.destinationAddress.$invalid }">
+                        <label for="destinationCity">Destination City:</label>
+                        <select id="destinationCity" name="destinationCity" class="form-control" ng-model="selectedDestinationAddressId" ng-change="updateDestinationAddress()">
+                            <option value="0">--- Select destination city ---</option>
+                            <option value={{destinationAddress.id}} ng-repeat="destinationAddress in destinationAddresses">
+                                {{destinationAddress.city}}
+                            </option>
+                        </select>
+                        <span class="help-block" ng-show="deliveryAddForm.destinationAddress.$error.required
+                             && deliveryAddForm.destinationAddress.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': deliveryAddForm.cargo.$invalid }">
+                        <label for="cargo">Cargo:</label>
+                        <input type="text" id="cargo" name="cargo" class="form-control" ng-model="delivery.cargo"/>
+                        <span class="help-block" ng-show="deliveryAddForm.cargo.$error.required
+                             && deliveryAddForm.cargo.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="cargoWeight">Cargo Weight (tons):</label>
+                        <input type="number" id="cargoWeight" name="cargoWeight" class="form-control" ng-model="delivery.cargoWeight"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': deliveryAddForm.companyReward.$invalid }">
+                        <label for="companyReward">Company Reward (euro):</label>
+                        <input type="number" id="companyReward" name="companyReward" class="form-control" ng-model="delivery.companyReward"/>
+                        <span class="help-block" ng-show="deliveryAddForm.companyReward.$error.required
+                             && deliveryAddForm.companyReward.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': deliveryAddForm.driverReward.$invalid }">
+                        <label for="driverReward">Driver Reward (euro):</label>
+                        <input type="number" id="driverReward" name="driverReward" class="form-control" ng-model="delivery.driverReward"/>
+                        <span class="help-block" ng-show="deliveryAddForm.driverReward.$error.required
+                             && deliveryAddForm.driverReward.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group" ng-class="{ 'has-error': deliveryAddForm.priority.$invalid }">
+                        <label for="priority">Priority:</label>
+                        <select id="priority" name="priority" class="form-control" ng-model="selectedPriorityId" ng-change="updatePriority()">
+                            <option value="0">--- Select priority ---</option>
+                            <option value="{{priority.id}}" ng-repeat="priority in priorities">
+                                {{priority.name}}
+                            </option>
+                        </select>
+                        <span class="help-block" ng-show="deliveryAddForm.priority.$error.required
+                             && deliveryAddForm.priority.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group text-center">
+                        <a class="btn btn-primary" role="button" ng-click="save(delivery)" data-ng-disabled="deliveryAddForm.$invalid">Save</a>
+                        <a class="btn btn-danger" role="button" ng-click="reset()">Reset</a>
+                    </div>
+                </div>
+            </div>
+        </ng-form>
+    </div>
+</div>

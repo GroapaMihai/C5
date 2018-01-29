@@ -1,0 +1,92 @@
+<div ng-include="'views/coordinatorMenu.html'"></div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Add employee</h2>
+    </div>
+    <div class="panel-body">
+        <ng-form name="employeeAddForm">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': employeeAddForm.firstName.$invalid }">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" class="form-control" ng-model="employee.firstName"/>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': employeeAddForm.lastName.$invalid }">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" class="form-control" ng-model="employee.lastName" required/>
+                        <span class="help-block" ng-show="employeeAddForm.lastName.$error.required
+                             && employeeAddForm.lastName.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': employeeAddForm.email.$invalid }">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" ng-model="employee.email"/>
+                        <span class="help-block" ng-show="employeeAddForm.email.$error.required
+                             && employeeAddForm.email.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': employeeAddForm.phone.$invalid }">
+                        <label for="phone">Phone:</label>
+                        <input type="text" id="phone" name="phone" class="form-control" ng-model="employee.phone"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': employeeAddForm.salary.$invalid }">
+                        <label for="salary">Salary:</label>
+                        <input type="number" id="salary" name="salary" class="form-control" ng-model="employee.salary"/>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': employeeAddForm.comm.$invalid }">
+                        <label for="comm">Commision:</label>
+                        <input type="number" id="comm" name="comm" class="form-control" ng-model="employee.comm"/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': employeeAddForm.hireDate.$invalid }">
+                        <label for="hireDate">Hire Date:</label>
+                        <input type="date" id="hireDate" name="hireDate" class="form-control" ng-model="employee.hireDate" required/>
+                        <span class="help-block" ng-show="employeeAddForm.hireDate.$error.required
+                             && employeeAddForm.hireDate.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" ng-class="{ 'has-error': employeeAddForm.accountType.$invalid }">
+                        <label for="accountType">Account type:</label>
+                        <select id="accountType" name="accountType" class="form-control" ng-model="selectedAccountTypeId" ng-change="updateEmployeeAccountType()">
+                            <option value="0">--- Select an account type ---</option>
+                            <option value="{{accountType.id}}" ng-repeat="accountType in accountTypes">
+                                {{accountType.name}}
+                            </option>
+                        </select>
+                        <span class="help-block" ng-show="employeeAddForm.accountType.$error.required
+                             && employeeAddForm.accountType.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group text-center">
+                        <a class="btn btn-primary" role="button" ng-click="save(employee)" data-ng-disabled="employeeAddForm.$invalid">Save</a>
+                        <a class="btn btn-danger" role="button" ng-click="reset()">Reset</a>
+                    </div>
+                </div>
+            </div>
+        </ng-form>
+    </div>
+</div>

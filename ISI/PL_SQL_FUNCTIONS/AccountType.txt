@@ -1,0 +1,53 @@
+CREATE OR REPLACE FUNCTION get_all_account_types()
+RETURNS SETOF account_type
+AS
+$BODY$
+DECLARE
+    r account_type%rowtype;
+BEGIN
+    FOR r IN SELECT * FROM account_type
+    LOOP
+        RETURN NEXT r;
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql';
+
+
+
+CREATE OR REPLACE FUNCTION get_account_type_by_id(searched_id BIGINT)
+RETURNS SETOF account_type
+AS
+$BODY$
+DECLARE
+    r account_type%rowtype;
+BEGIN
+    FOR r IN (SELECT * FROM account_type
+    WHERE account_type.id = searched_id)
+    LOOP
+        RETURN NEXT r;
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql';
+
+
+
+CREATE OR REPLACE FUNCTION get_account_type_by_name(searched_name VARCHAR)
+RETURNS SETOF account_type
+AS
+$BODY$
+DECLARE
+    r account_type%rowtype;
+BEGIN
+    FOR r IN (SELECT * FROM account_type
+    WHERE account_type.name = searched_name)
+    LOOP
+        RETURN NEXT r;
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql';

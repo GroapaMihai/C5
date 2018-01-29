@@ -1,0 +1,132 @@
+CREATE OR REPLACE FUNCTION get_all_deliveries() RETURNS SETOF delivery AS
+$BODY$
+DECLARE
+    r delivery%rowtype;
+BEGIN
+    FOR r IN SELECT * FROM delivery
+    LOOP
+        RETURN NEXT r;
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql';
+
+
+
+CREATE OR REPLACE FUNCTION get_delivery_by_id(searched_id BIGINT) RETURNS SETOF delivery AS
+$BODY$
+DECLARE
+    r delivery%rowtype;
+BEGIN
+    FOR r IN (SELECT * FROM delivery
+    WHERE delivery.id = searched_id)
+    LOOP
+        RETURN NEXT r;
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql';
+
+
+
+CREATE OR REPLACE FUNCTION get_deliveries_by_status_name(status_name VARCHAR) RETURNS SETOF delivery AS
+$BODY$
+DECLARE
+    r delivery%rowtype;
+BEGIN
+    FOR r IN (SELECT * FROM delivery
+    WHERE (SELECT status.name FROM status WHERE status.id = delivery.fk_status) = status_name)
+    LOOP
+        RETURN NEXT r;
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql';
+
+
+
+CREATE OR REPLACE FUNCTION add_delivery(
+ fk_starting_address BIGINT,
+ fk_destination_address BIGINT,
+ cargo VARCHAR,
+ cargo_weight NUMERIC,
+ fk_priority BIGINT,
+ company_reward INT,
+ driver_reward INT,
+ fk_status BIGINT,
+ delivery_date DATE
+) 
+ RETURNS VOID
+AS $$
+BEGIN
+    INSERT INTO delivery
+    VALUES(
+        (select nextval('seq_delivery')),
+        fk_starting_address,
+        fk_destination_address,
+        cargo,
+        cargo_weight,
+        fk_priority,
+        company_reward,
+        driver_reward,
+        fk_status,
+        delivery_date
+    );
+END; $$ 
+ 
+LANGUAGE 'plpgsql';
+
+
+
+CREATE OR REPLACE FUNCTION update_delivery(
+    id_u BIGINT,
+    fk_starting_address_u BIGINT,
+    fk_destination_address_u BIGINT,
+    cargo_u VARCHAR,
+    cargo_weight_u NUMERIC,
+    fk_priority_u BIGINT,
+    company_reward_u INT,
+    driver_reward_u INT,
+    fk_status_u BIGINT,
+    delivery_date_u DATE
+)
+RETURNS BIGINT
+AS $$
+DECLARE
+	delivery_id BIGINT;
+BEGIN
+	delivery_id := (SELECT delivery.id FROM delivery WHERE delivery.id = id_u);
+
+	IF delivery_id IS NULL THEN
+    	RETURN add_delivery(
+            fk_starting_address_u,
+            fk_destination_address_u,
+            cargo_u,
+            cargo_weight_u,
+            fk_priority_u,
+            company_reward_u,
+            driver_reward_u,
+            fk_status_u,
+            delivery_date_u
+        );
+    ELSE
+        UPDATE delivery SET
+            fk_starting_address = fk_starting_address_u,
+            fk_destination_address = fk_destination_address_u,
+            cargo = cargo_u,
+            cargo_weight = cargo_weight_u,
+            fk_priority = fk_priority_u,
+            company_reward = company_reward_u,
+            driver_reward = driver_reward_u,
+            fk_status = fk_status_u,
+            delivery_date = delivery_date_u
+		WHERE id = id_u;
+
+    	RETURN id_u;
+    END IF;
+END; $$ 
+ 
+LANGUAGE 'plpgsql';

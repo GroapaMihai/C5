@@ -1,0 +1,11 @@
+Exemplu de proiect generat cu spring boot peste care am adaugat o conexiune la o baza de date de tipul Postgres.
+Trebuie sa va creati o baza de date ale carei configuratii le gasiti in cadrul fisierului application.properties din folderul resources.
+Am creat si posibilitatea de a rula scripturi de liquibase pentru a popula aceasta baza de date, vezi exemplu: 09-08-2017 CD.xml si demo.xml.
+Exista creata o entitate model ca si exemplu, pentru Hibernate(mapare campuri, secventa si denumire) si Spring Data JPA(repository), si un test ce verifica un save in baza de date.
+Exista si un exemplu de rest, odata rulat main-ul din cadrul clasei DemoApplication.java, se va apela localhost:8080 in browser si se va afisa mesajul intors de metoda din rest.
+
+De moment eu am lucrat fara DTO-uri, voi ar trebui sa va creati astfel de obiecte pentru a lucra cu ele in aplicatie.
+
+Aplicatia de moment are configurat liquibase-ul pe baza unui profil de maven, vezi pom.xml. Pentru a rula un script de liquibase trebuie bifat
+profilul din cadrul meniului Maven Projects. Se poate comenta profilul si decomenta partea de build pentru a se rula scripturile trecute in
+cadrul changelog-ului demo.xml odata cu pornirea contextului (cum doresti, mai fancy cu profil :D).
