@@ -1,0 +1,154 @@
+<div ng-include="'views/coordinatorMenu.html'"></div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Increase details</b></h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="salaryIncrease">Increase salary by:</label>
+                    <input type="number" id="salaryIncrease" name="salaryIncrease" class="form-control" ng-model="revenueIncrease.salaryIncrease"/>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="salaryIncreaseType">Increase type:</label>
+                    <select id="salaryIncreaseType" name="salaryIncreaseType" class="form-control" ng-model="revenueIncrease.salaryIncreaseType">
+                        <option value="0">--- Select salary increase type ---</option>
+                        <option value="{{increaseType}}" ng-repeat="increaseType in increaseTypes">
+                            {{increaseType}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="commIncrease">Increase commision by:</label>
+                    <input type="number" id="commIncrease" name="commIncrease" class="form-control" ng-model="revenueIncrease.commIncrease"/>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="commIncreaseType">Increase type:</label>
+                    <select id="commIncreaseType" name="commIncreaseType" class="form-control" ng-model="revenueIncrease.commIncreaseType">
+                        <option value="0">--- Select commision increase type ---</option>
+                        <option value="{{increaseType}}" ng-repeat="increaseType in increaseTypes">
+                            {{increaseType}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Increase conditions</b></h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="minDeliveries">Minimum number of deliveries:</label>
+                    <input type="number" id="minDeliveries" name="minDeliveries" class="form-control" ng-model="revenueIncrease.minDeliveries"/>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="operator">Operator:</label>
+                    <select id="operator" name="operator" class="form-control" ng-model="revenueIncrease.operator">
+                        <option value="0">--- Select operator between conditions ---</option>
+                        <option value="{{operator}}" ng-repeat="operator in operators">
+                            {{operator}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="minCompanyRevenueFromDriver">Minimum company revenue from driver's deliveries:</label>
+                    <input type="number" id="minCompanyRevenueFromDriver" name="minCompanyRevenueFromDriver" class="form-control" ng-model="revenueIncrease.minCompanyRevenueFromDriver"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="startDate">Start date:</label>
+                    <input type="date" id="startDate" name="startDate" class="form-control" ng-model="revenueIncrease.startDate"/>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="endDate">End date:</label>
+                    <input type="date" id="endDate" name="endDate" class="form-control" ng-model="revenueIncrease.endDate"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-bottom: 1cm">
+    <div class="col-md-12">
+        <div class="form-group text-center">
+            <a class="btn btn-primary" role="button" ng-click="listEligibleDrivers()">List eligible drivers</a>
+            <a class="btn btn-success" role="button" ng-click="applyIncrease()">Apply increase</a>
+            <a class="btn btn-danger" role="button" ng-click="reset()">Reset</a>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Eligible Drivers</b></h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th class="text-center">Id</th>
+                <th class="text-center">First Name</th>
+                <th class="text-center">Last Name</th>
+                <th class="text-center">Hire Date</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Phone Number</th>
+                <th class="text-center">Salary</th>
+                <th class="text-center">Commision</th>
+                <th class="text-center">Status</th>
+            </tr>
+            <tr ng-repeat="driver in eligibleDrivers">
+                <td class="text-center">
+                    {{driver.id}}
+                </td>
+                <td class="text-center">
+                    {{driver.firstName}}
+                </td>
+                <td class="text-center">
+                    {{driver.lastName}}
+                </td>
+                <td class="text-center">
+                    {{driver.hireDate | date: 'dd-MM-yyyy'}}
+                </td>
+                <td class="text-center">
+                    {{driver.email}}
+                </td>
+                <td class="text-center">
+                    {{driver.phone}}
+                </td>
+                <td class="text-center">
+                    {{driver.salary}}
+                </td>
+                <td class="text-center">
+                    {{driver.comm}}
+                </td>
+                <td class="text-center">
+                    {{driver.status.name}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

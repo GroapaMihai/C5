@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .panel {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 50%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Transport Logistics Application</h1>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2 class="panel-title">Login Form</h2>
+    </div>
+    <div class="panel-body">
+        <ng-form name="loginForm">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group" ng-class="{ 'has-error': loginForm.email.$invalid }">
+                        <label for="email">Email:</label>
+                        <input type="email" placeholder="Enter Email" id="email" name="email" class="form-control" ng-model="email" required/>
+                        <span class="help-block" ng-show="loginForm.email.$error.required
+                             && loginForm.email.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group" ng-class="{ 'has-error': loginForm.password.$invalid }">
+                        <label for="password">Password:</label>
+                        <input type="password" placeholder="Enter Password" id="password" name="password" class="form-control" ng-model="password" required/>
+                        <span class="help-block" ng-show="loginForm.password.$error.required
+                             && loginForm.password.$dirty">{{requiredErrorMessage}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <input type="checkbox" checked="checked"> Remember me
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <button type="submit" ng-click="login()" data-ng-disabled="loginForm.$invalid">Login</button>
+                </div>
+            </div>
+        </ng-form>
+    </div>
+</div>
+
+</body>
+</html>

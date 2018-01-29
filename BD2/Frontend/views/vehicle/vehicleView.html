@@ -1,0 +1,74 @@
+<div ng-include="'views/coordinatorMenu.html'"></div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Vehicle <b>{{vehicle.brand}} {{vehicle.model}}</b></h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="registrationNumber">Registration Number:</label>
+                    <span id="registrationNumber" class="form-control">{{vehicle.registrationNumber}}</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="firstRegistrationDate">First Registration Date:</label>
+                    <span id="firstRegistrationDate" class="form-control">{{vehicle.firstRegistrationDate | date: 'dd-MM-yyyy'}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="brand">Brand:</label>
+                    <span id="brand" class="form-control">{{vehicle.brand}}</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="model">Model:</label>
+                    <span id="model" class="form-control">{{vehicle.model}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="travelledDistance">Travelled distance (km):</label>
+                    <span id="travelledDistance" class="form-control">{{vehicle.travelledDistance}}</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="currentValue">Current value (euro):</label>
+                    <span id="currentValue" class="form-control">{{vehicle.currentValue}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="color">Color:</label>
+                    <span id="color" class="form-control" style="background-color:{{vehicle.color.hex}}">
+                        {{vehicle.color.name}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <span id="status" class="form-control">{{vehicle.status.name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group text-center">
+                    <button class="btn btn-primary" ng-click="back()">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

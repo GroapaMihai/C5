@@ -1,0 +1,2 @@
+INSERT INTO account_type VALUES ((SELECT nextval('seq_account_type')), 'Coordinator');
+INSERT INTO account_type VALUES ((SELECT nextval('seq_account_type')), 'Driver');

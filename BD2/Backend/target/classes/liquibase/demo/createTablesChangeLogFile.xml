@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+
+    <changeSet author="mihai.groapa" id="09082017142200">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="seq_vehicle"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="seq_vehicle" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142201">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="seq_account_type"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="seq_account_type" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142202">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="seq_address"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="seq_address" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142204">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="seq_priority"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="seq_priority" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142205">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="seq_status"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="seq_status" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142206">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="seq_delivery"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="seq_delivery" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142207">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="seq_employee"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="seq_employee" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142208">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="seq_planification"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="seq_planification" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142209">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="seq_color"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="seq_color" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142310" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="vehicle"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="public" tableName="vehicle">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ID_VEHICLE"/>
+            </column>
+            <column name="registration_number" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="brand" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="model" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fk_color" type="BIGINT">
+				<constraints nullable="false" foreignKeyName="fk_vehicle_color" references="color(id)"/>
+			</column>
+            <column name="first_registration_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="travelled_distance" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="current_value" type="int"/>
+            <column name="fk_status" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_vehicle_status" references="status(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142301" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="account_type"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="public" tableName="account_type">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ID_ACCOUNT_TYPE"/>
+            </column>
+            <column name="account_type" type="varchar(50)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142302" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="address"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="public" tableName="address">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ID_ADDRESS"/>
+            </column>
+            <column name="country_shortname" type="varchar(5)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142304" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="priority"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="public" tableName="priority">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ID_PRIORITY"/>
+            </column>
+            <column name="priority" type="varchar(10)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142305" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="status"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="public" tableName="status">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ID_STATUS"/>
+            </column>
+            <column name="status" type="varchar(10)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142306" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="delivery"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="public" tableName="delivery">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ID_DELIVERY"/>
+            </column>
+            <column name="fk_starting_address" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_delivery_starting_address" references="address(id)"/>
+            </column>
+            <column name="fk_destination_address" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_delivery_destination_address" references="address(id)"/>
+            </column>
+            <column name="cargo" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cargo_weight" type="decimal(3, 2)"/>
+            <column name="fk_priority" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_delivery_priority" references="priority(id)"/>
+            </column>
+            <column name="company_reward" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="driver_reward" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fk_status" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_delvery_status" references="status(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142307" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="employee"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="public" tableName="employee">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ID_EMPLOYEE"/>
+            </column>
+            <column name="first_name" type="varchar(25)"/>
+            <column name="last_name" type="varchar(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hiredate" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone" type="varchar(25)"/>
+            <column name="fk_account_type" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_employee_account_type" references="account_type(id)"/>
+            </column>
+            <column name="fk_status" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_employee_status" references="status(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142311" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="planification"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="public" tableName="planification">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ID_PLANIFICATION"/>
+            </column>
+            <column name="fk_employee" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_planification_employee" references="employee(id)"/>
+            </column>
+            <column name="fk_vehicle" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_planification_vehicle" references="vehicle(id)"/>
+            </column>
+            <column name="fk_delivery" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_planification_delivery" references="delivery(id)"/>
+            </column>
+			<column name="fk_status" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_planification_status" references="status(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="mihai.groapa" id="09082017142309" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="color"/>
+            </not>
+        </preConditions>
+        <createTable schemaName="public" tableName="color">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="ID_COLOR"/>
+            </column>
+            <column name="name" type="varchar(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hex" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rgb" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

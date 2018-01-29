@@ -1,0 +1,104 @@
+<div ng-include="'views/coordinatorMenu.html'"></div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">
+            Delivery
+            <b>{{delivery.cargo}}</b>
+            from
+            <b>[{{delivery.startingAddress.country.name}}] {{delivery.startingAddress.city}}</b>
+            to
+            <b>[{{delivery.destinationAddress.country.name}}] {{delivery.destinationAddress.city}}</b>
+        </h2>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="startingAddress">Starting Address:</label>
+                    <span id="startingAddress" class="form-control">
+                        [{{delivery.startingAddress.country.name}}] {{delivery.startingAddress.city}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="destinationAddress">Destination Address:</label>
+                    <span id="destinationAddress" class="form-control">
+                        [{{delivery.destinationAddress.country.name}}] {{delivery.destinationAddress.city}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="cargo">Cargo:</label>
+                    <span id="cargo" class="form-control">
+                        {{delivery.cargo}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="cargoWeight">Cargo Weight (tons):</label>
+                    <span id="cargoWeight" class="form-control">
+                        {{delivery.cargoWeight}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="companyReward">Company Reward (euro):</label>
+                    <span id="companyReward" class="form-control">
+                        {{delivery.companyReward}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="driverReward">Driver Reward (euro):</label>
+                    <span id="driverReward" class="form-control">
+                        {{delivery.driverReward}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="priority">Priority:</label>
+                    <span id="priority" class="form-control">
+                        {{delivery.priority.name}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="status">Status:</label>
+                    <span id="status" class="form-control">
+                        {{delivery.status.name}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="deliveryDate">Delivery Date:</label>
+                    <span id="deliveryDate" class="form-control">
+                        {{(delivery.deliveryDate | date: 'dd-MM-yyyy') || "N/A"}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="form-group text-center">
+                    <button class="btn btn-primary" ng-click="back()">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

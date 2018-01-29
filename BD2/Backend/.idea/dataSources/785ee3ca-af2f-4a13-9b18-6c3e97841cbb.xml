@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Transport_Logistics_DB@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.4">
+    <root id="1"/>
+    <database id="2" parent="1" name="Transport_Logistics_DB">
+      <ObjectId>32778</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12401</ObjectId>
+    </database>
+    <database id="4" parent="1" name="demo">
+      <ObjectId>16393</ObjectId>
+    </database>
+    <database id="5" parent="1" name="RPG_Database">
+      <ObjectId>24586</ObjectId>
+    </database>
+    <schema id="6" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-12-28.13:01:07.401</IntrospectionTimestamp>
+      <IntrospectionStateNumber>171750</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="7" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="9" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="10" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="11" parent="2" name="information_schema">
+      <ObjectId>12113</ObjectId>
+    </schema>
+    <sequence id="12" parent="6" name="seq_account_type">
+      <ObjectId>40998</ObjectId>
+      <StateNumber>680</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="13" parent="6" name="seq_address">
+      <ObjectId>41000</ObjectId>
+      <StateNumber>682</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="14" parent="6" name="seq_color">
+      <ObjectId>41168</ObjectId>
+      <StateNumber>171101</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="15" parent="6" name="seq_country">
+      <ObjectId>49167</ObjectId>
+      <StateNumber>171444</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="16" parent="6" name="seq_delivery">
+      <ObjectId>41008</ObjectId>
+      <StateNumber>690</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="17" parent="6" name="seq_employee">
+      <ObjectId>41010</ObjectId>
+      <StateNumber>692</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="18" parent="6" name="seq_planification">
+      <ObjectId>41012</ObjectId>
+      <StateNumber>694</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="19" parent="6" name="seq_priority">
+      <ObjectId>41004</ObjectId>
+      <StateNumber>686</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="20" parent="6" name="seq_status">
+      <ObjectId>41006</ObjectId>
+      <StateNumber>688</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="21" parent="6" name="seq_vehicle">
+      <ObjectId>32799</ObjectId>
+      <StateNumber>634</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <table id="22" parent="6" name="account_type">
+      <ObjectId>41014</ObjectId>
+      <StateNumber>709</StateNumber>
+    </table>
+    <table id="23" parent="6" name="address">
+      <ObjectId>41021</ObjectId>
+      <StateNumber>171703</StateNumber>
+    </table>
+    <table id="24" parent="6" name="color">
+      <ObjectId>41170</ObjectId>
+      <StateNumber>171341</StateNumber>
+    </table>
+    <table id="25" parent="6" name="country">
+      <ObjectId>49162</ObjectId>
+      <StateNumber>171703</StateNumber>
+    </table>
+    <table id="26" parent="6" name="databasechangelog">
+      <ObjectId>32793</ObjectId>
+      <StateNumber>633</StateNumber>
+    </table>
+    <table id="27" parent="6" name="databasechangeloglock">
+      <ObjectId>32788</ObjectId>
+      <StateNumber>630</StateNumber>
+    </table>
+    <table id="28" parent="6" name="delivery">
+      <ObjectId>41049</ObjectId>
+      <StateNumber>171423</StateNumber>
+    </table>
+    <table id="29" parent="6" name="employee">
+      <ObjectId>41079</ObjectId>
+      <StateNumber>171748</StateNumber>
+    </table>
+    <table id="30" parent="6" name="planification">
+      <ObjectId>41194</ObjectId>
+      <StateNumber>171403</StateNumber>
+    </table>
+    <table id="31" parent="6" name="priority">
+      <ObjectId>41035</ObjectId>
+      <StateNumber>707</StateNumber>
+    </table>
+    <table id="32" parent="6" name="status">
+      <ObjectId>41042</ObjectId>
+      <StateNumber>171423</StateNumber>
+    </table>
+    <table id="33" parent="6" name="vehicle">
+      <ObjectId>41182</ObjectId>
+      <StateNumber>171405</StateNumber>
+    </table>
+    <column id="34" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>697</StateNumber>
+    </column>
+    <column id="35" parent="22" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171731</StateNumber>
+    </column>
+    <index id="36" parent="22" name="id_account_type">
+      <ObjectId>41017</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="37" parent="22" name="account_type_account_type_key">
+      <ObjectId>41019</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="38" parent="22" name="id_account_type">
+      <ObjectId>41018</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_account_type</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="39" parent="22" name="account_type_account_type_key">
+      <ObjectId>41020</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>account_type_account_type_key</UnderlyingIndexName>
+    </key>
+    <column id="40" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>699</StateNumber>
+    </column>
+    <column id="41" parent="23" name="city">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>26539</StateNumber>
+    </column>
+    <column id="42" parent="23" name="fk_country">
+      <Position>4</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171704</StateNumber>
+    </column>
+    <index id="43" parent="23" name="id_address">
+      <ObjectId>41024</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="44" parent="23" name="id_address">
+      <ObjectId>41025</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_address</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="45" parent="23" name="fk_address_country">
+      <ObjectId>57355</ObjectId>
+      <ColNames>fk_country</ColNames>
+      <RefTableId>49162</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>country</RefTableName>
+      <RefKeyName>country_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="46" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171111</StateNumber>
+    </column>
+    <column id="47" parent="24" name="name">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171111</StateNumber>
+    </column>
+    <column id="48" parent="24" name="hex">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171111</StateNumber>
+    </column>
+    <column id="49" parent="24" name="rgb">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171111</StateNumber>
+    </column>
+    <index id="50" parent="24" name="id_color">
+      <ObjectId>41173</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="51" parent="24" name="id_color">
+      <ObjectId>41174</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_color</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171443</StateNumber>
+    </column>
+    <column id="53" parent="25" name="name">
+      <Position>2</Position>
+      <DataType>varchar(5)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171732</StateNumber>
+    </column>
+    <index id="54" parent="25" name="country_pkey">
+      <ObjectId>49165</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="55" parent="25" name="country_pkey">
+      <ObjectId>49166</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>country_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="57" parent="26" name="author">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="58" parent="26" name="filename">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="59" parent="26" name="dateexecuted">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="60" parent="26" name="orderexecuted">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="61" parent="26" name="exectype">
+      <Position>6</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="62" parent="26" name="md5sum">
+      <Position>7</Position>
+      <DataType>varchar(35)|0</DataType>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="63" parent="26" name="description">
+      <Position>8</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="64" parent="26" name="comments">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="65" parent="26" name="tag">
+      <Position>10</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="66" parent="26" name="liquibase">
+      <Position>11</Position>
+      <DataType>varchar(20)|0</DataType>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="67" parent="26" name="contexts">
+      <Position>12</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="68" parent="26" name="labels">
+      <Position>13</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="69" parent="26" name="deployment_id">
+      <Position>14</Position>
+      <DataType>varchar(10)|0</DataType>
+      <StateNumber>633</StateNumber>
+    </column>
+    <column id="70" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>630</StateNumber>
+    </column>
+    <column id="71" parent="27" name="locked">
+      <Position>2</Position>
+      <DataType>boolean|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>630</StateNumber>
+    </column>
+    <column id="72" parent="27" name="lockgranted">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <StateNumber>630</StateNumber>
+    </column>
+    <column id="73" parent="27" name="lockedby">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>630</StateNumber>
+    </column>
+    <index id="74" parent="27" name="pk_databasechangeloglock">
+      <ObjectId>32791</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="75" parent="27" name="pk_databasechangeloglock">
+      <ObjectId>32792</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>pk_databasechangeloglock</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="76" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>707</StateNumber>
+    </column>
+    <column id="77" parent="28" name="fk_starting_address">
+      <Position>2</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>707</StateNumber>
+    </column>
+    <column id="78" parent="28" name="fk_destination_address">
+      <Position>3</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>707</StateNumber>
+    </column>
+    <column id="79" parent="28" name="cargo">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171089</StateNumber>
+    </column>
+    <column id="80" parent="28" name="cargo_weight">
+      <Position>5</Position>
+      <DataType>numeric(3,2)|0</DataType>
+      <StateNumber>707</StateNumber>
+    </column>
+    <column id="81" parent="28" name="fk_priority">
+      <Position>6</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>707</StateNumber>
+    </column>
+    <column id="82" parent="28" name="company_reward">
+      <Position>8</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>707</StateNumber>
+    </column>
+    <column id="83" parent="28" name="driver_reward">
+      <Position>9</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>707</StateNumber>
+    </column>
+    <column id="84" parent="28" name="fk_status">
+      <Position>10</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171422</StateNumber>
+    </column>
+    <index id="85" parent="28" name="id_delivery">
+      <ObjectId>41052</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="86" parent="28" name="id_delivery">
+      <ObjectId>41053</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_delivery</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="87" parent="28" name="fk_delivery_starting_address">
+      <ObjectId>41054</ObjectId>
+      <ColNames>fk_starting_address</ColNames>
+      <RefTableId>41021</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>address</RefTableName>
+      <RefKeyName>id_address</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="88" parent="28" name="fk_delivery_destination_address">
+      <ObjectId>41064</ObjectId>
+      <ColNames>fk_destination_address</ColNames>
+      <RefTableId>41021</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>address</RefTableName>
+      <RefKeyName>id_address</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="89" parent="28" name="fk_delivery_priority">
+      <ObjectId>41059</ObjectId>
+      <ColNames>fk_priority</ColNames>
+      <RefTableId>41035</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>priority</RefTableName>
+      <RefKeyName>id_priority</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="90" parent="28" name="fk_delivery_status">
+      <ObjectId>41239</ObjectId>
+      <ColNames>fk_status</ColNames>
+      <RefTableId>41042</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>status</RefTableName>
+      <RefKeyName>id_status</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="91" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+    </column>
+    <column id="92" parent="29" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+      <StateNumber>709</StateNumber>
+    </column>
+    <column id="93" parent="29" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+    </column>
+    <column id="94" parent="29" name="hiredate">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+    </column>
+    <column id="95" parent="29" name="email">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171420</StateNumber>
+    </column>
+    <column id="96" parent="29" name="phone">
+      <Position>6</Position>
+      <DataType>varchar(25)|0</DataType>
+      <StateNumber>709</StateNumber>
+    </column>
+    <column id="97" parent="29" name="fk_account_type">
+      <Position>7</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>709</StateNumber>
+    </column>
+    <column id="98" parent="29" name="fk_status">
+      <Position>8</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171415</StateNumber>
+    </column>
+    <column id="99" parent="29" name="password">
+      <Position>9</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171750</StateNumber>
+    </column>
+    <index id="100" parent="29" name="id_employee">
+      <ObjectId>41082</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="101" parent="29" name="id_employee">
+      <ObjectId>41083</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_employee</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="102" parent="29" name="fk_employee_account_type">
+      <ObjectId>41084</ObjectId>
+      <ColNames>fk_account_type</ColNames>
+      <RefTableId>41014</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>account_type</RefTableName>
+      <RefKeyName>id_account_type</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="103" parent="29" name="fk_employee_status">
+      <ObjectId>41234</ObjectId>
+      <ColNames>fk_status</ColNames>
+      <RefTableId>41042</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>status</RefTableName>
+      <RefKeyName>id_status</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="104" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171343</StateNumber>
+    </column>
+    <column id="105" parent="30" name="fk_employee">
+      <Position>2</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171343</StateNumber>
+    </column>
+    <column id="106" parent="30" name="fk_vehicle">
+      <Position>3</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171343</StateNumber>
+    </column>
+    <column id="107" parent="30" name="fk_delivery">
+      <Position>4</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171343</StateNumber>
+    </column>
+    <column id="108" parent="30" name="fk_status">
+      <Position>5</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171372</StateNumber>
+    </column>
+    <index id="109" parent="30" name="id_planification">
+      <ObjectId>41197</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="110" parent="30" name="id_planification">
+      <ObjectId>41198</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_planification</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="111" parent="30" name="fk_planification_employee">
+      <ObjectId>41209</ObjectId>
+      <ColNames>fk_employee</ColNames>
+      <RefTableId>41079</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>employee</RefTableName>
+      <RefKeyName>id_employee</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="112" parent="30" name="fk_planification_vehicle">
+      <ObjectId>41204</ObjectId>
+      <ColNames>fk_vehicle</ColNames>
+      <RefTableId>41182</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>vehicle</RefTableName>
+      <RefKeyName>id_vehicle</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="113" parent="30" name="fk_planification_delivery">
+      <ObjectId>41199</ObjectId>
+      <ColNames>fk_delivery</ColNames>
+      <RefTableId>41049</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>delivery</RefTableName>
+      <RefKeyName>id_delivery</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="114" parent="30" name="fk_planification_status">
+      <ObjectId>41214</ObjectId>
+      <ColNames>fk_status</ColNames>
+      <RefTableId>41042</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>status</RefTableName>
+      <RefKeyName>id_status</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="115" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>703</StateNumber>
+    </column>
+    <column id="116" parent="31" name="name">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171733</StateNumber>
+    </column>
+    <index id="117" parent="31" name="id_priority">
+      <ObjectId>41038</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="118" parent="31" name="priority_priority_key">
+      <ObjectId>41040</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="119" parent="31" name="id_priority">
+      <ObjectId>41039</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_priority</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="120" parent="31" name="priority_priority_key">
+      <ObjectId>41041</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>priority_priority_key</UnderlyingIndexName>
+    </key>
+    <column id="121" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>705</StateNumber>
+    </column>
+    <column id="122" parent="32" name="name">
+      <Position>2</Position>
+      <DataType>varchar(10)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171734</StateNumber>
+    </column>
+    <index id="123" parent="32" name="id_status">
+      <ObjectId>41045</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="124" parent="32" name="status_status_key">
+      <ObjectId>41047</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="125" parent="32" name="id_status">
+      <ObjectId>41046</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_status</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="126" parent="32" name="status_status_key">
+      <ObjectId>41048</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>status_status_key</UnderlyingIndexName>
+    </key>
+    <column id="127" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171341</StateNumber>
+    </column>
+    <column id="128" parent="33" name="registration_number">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171341</StateNumber>
+    </column>
+    <column id="129" parent="33" name="brand">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171341</StateNumber>
+    </column>
+    <column id="130" parent="33" name="model">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171341</StateNumber>
+    </column>
+    <column id="131" parent="33" name="fk_color">
+      <Position>5</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171341</StateNumber>
+    </column>
+    <column id="132" parent="33" name="first_registration_date">
+      <Position>6</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171341</StateNumber>
+    </column>
+    <column id="133" parent="33" name="travelled_distance">
+      <Position>7</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171396</StateNumber>
+    </column>
+    <column id="134" parent="33" name="current_value">
+      <Position>8</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>171341</StateNumber>
+    </column>
+    <column id="135" parent="33" name="fk_status">
+      <Position>9</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>171404</StateNumber>
+    </column>
+    <index id="136" parent="33" name="id_vehicle">
+      <ObjectId>41185</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="137" parent="33" name="vehicle_registration_number_key">
+      <ObjectId>41187</ObjectId>
+      <ColNames>registration_number</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="138" parent="33" name="id_vehicle">
+      <ObjectId>41186</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>id_vehicle</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="139" parent="33" name="vehicle_registration_number_key">
+      <ObjectId>41188</ObjectId>
+      <ColNames>registration_number</ColNames>
+      <UnderlyingIndexName>vehicle_registration_number_key</UnderlyingIndexName>
+    </key>
+    <foreign-key id="140" parent="33" name="fk_vehicle_color">
+      <ObjectId>41189</ObjectId>
+      <ColNames>fk_color</ColNames>
+      <RefTableId>41170</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>color</RefTableName>
+      <RefKeyName>id_color</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="141" parent="33" name="fk_vehicle_status">
+      <ObjectId>41229</ObjectId>
+      <ColNames>fk_status</ColNames>
+      <RefTableId>41042</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>status</RefTableName>
+      <RefKeyName>id_status</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

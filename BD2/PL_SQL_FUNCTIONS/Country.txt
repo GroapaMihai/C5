@@ -1,0 +1,53 @@
+CREATE OR REPLACE FUNCTION get_all_countries()
+RETURNS SETOF country
+AS
+$BODY$
+DECLARE
+    r country%rowtype;
+BEGIN
+    FOR r IN SELECT * FROM country
+    LOOP
+        RETURN NEXT r;
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql';
+
+
+
+CREATE OR REPLACE FUNCTION get_country_by_id(searched_id BIGINT)
+RETURNS SETOF country
+AS
+$BODY$
+DECLARE
+    r country%rowtype;
+BEGIN
+    FOR r IN (SELECT * FROM country
+    WHERE country.id = searched_id)
+    LOOP
+        RETURN NEXT r;
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql';
+
+
+
+CREATE OR REPLACE FUNCTION get_country_by_name(searched_name VARCHAR)
+RETURNS SETOF country
+AS
+$BODY$
+DECLARE
+    r country%rowtype;
+BEGIN
+    FOR r IN (SELECT * FROM country
+    WHERE country.name = searched_name)
+    LOOP
+        RETURN NEXT r;
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql';

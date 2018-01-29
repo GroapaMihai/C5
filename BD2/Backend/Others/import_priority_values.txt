@@ -1,0 +1,4 @@
+INSERT INTO priority VALUES ((SELECT nextval('seq_priority')), 'Low');
+INSERT INTO priority VALUES ((SELECT nextval('seq_priority')), 'Medium');
+INSERT INTO priority VALUES ((SELECT nextval('seq_priority')), 'High');
+INSERT INTO priority VALUES ((SELECT nextval('seq_priority')), 'Critical');

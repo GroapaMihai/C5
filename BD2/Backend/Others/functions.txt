@@ -1,0 +1,15 @@
+CREATE OR REPLACE FUNCTION get_colors () 
+ RETURNS TABLE (
+ color_id BIGINT,
+ color_name VARCHAR
+) 
+AS $$
+BEGIN
+ RETURN QUERY SELECT
+ cast (id as BIGINT),
+ name
+ FROM
+ color;
+END; $$ 
+ 
+LANGUAGE 'plpgsql';

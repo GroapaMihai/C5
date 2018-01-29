@@ -1,0 +1,219 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">
+            Delivery
+            <b>{{planification.delivery.cargo}}</b>
+            from
+            <b>[{{planification.delivery.startingAddress.country.name}}] {{planification.delivery.startingAddress.city}}</b>
+            to
+            <b>[{{planification.delivery.destinationAddress.country.name}}] {{planification.delivery.destinationAddress.city}}</b>
+        </h2>
+    </div>
+
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="startingAddress">Starting Address:</label>
+                    <span id="startingAddress" class="form-control">
+                        [{{planification.delivery.startingAddress.country.name}}] {{planification.delivery.startingAddress.city}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="destinationAddress">Destination Address:</label>
+                    <span id="destinationAddress" class="form-control">
+                        [{{planification.delivery.destinationAddress.country.name}}] {{planification.delivery.destinationAddress.city}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="cargo">Cargo:</label>
+                    <span id="cargo" class="form-control">
+                        {{planification.delivery.cargo}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="cargoWeight">Cargo Weight (tons):</label>
+                    <span id="cargoWeight" class="form-control">
+                        {{planification.delivery.cargoWeight}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="companyReward">Company Reward (euro):</label>
+                    <span id="companyReward" class="form-control">
+                        {{planification.delivery.companyReward}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="driverReward">Driver Reward (euro):</label>
+                    <span id="driverReward" class="form-control">
+                        {{planification.delivery.driverReward}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="priority">Priority:</label>
+                    <span id="priority" class="form-control">
+                        {{planification.delivery.priority.name}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="deliveryStatus">Status:</label>
+                    <span id="deliveryStatus" class="form-control">
+                        {{planification.delivery.status.name}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="deliveryDate">Delivery Date:</label>
+                    <span id="deliveryDate" class="form-control">
+                        {{(planification.delivery.deliveryDate | date: 'dd-MM-yyyy') || "N/A"}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Vehicle <b>{{planification.truck.brand}} {{planification.truck.model}}</b></h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="registrationNumber">Registration Number:</label>
+                    <span id="registrationNumber" class="form-control">{{planification.truck.registrationNumber}}</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="firstRegistrationDate">First Registration Date:</label>
+                    <span id="firstRegistrationDate" class="form-control">{{planification.truck.firstRegistrationDate | date: 'dd-MM-yyyy'}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="brand">Brand:</label>
+                    <span id="brand" class="form-control">{{planification.truck.brand}}</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="model">Model:</label>
+                    <span id="model" class="form-control">{{planification.truck.model}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="travelledDistance">Travelled distance (km):</label>
+                    <span id="travelledDistance" class="form-control">{{planification.truck.travelledDistance}}</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="currentValue">Current value (euro):</label>
+                    <span id="currentValue" class="form-control">{{planification.truck.currentValue}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="color">Color:</label>
+                    <span id="color" class="form-control" style="background-color:{{planification.truck.color.hex}}">
+                        {{planification.truck.color.name}}
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="vehicleStatus">Status:</label>
+                    <span id="vehicleStatus" class="form-control">{{planification.truck.status.name}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title">Driver <b>{{planification.driver.firstName}} {{planification.driver.lastName}}</b></h2>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="firstName">First name:</label>
+                    <span id="firstName" class="form-control">{{planification.driver.firstName}}</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="lastName">Last name:</label>
+                    <span id="lastName" class="form-control">{{planification.driver.lastName}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <span id="email" class="form-control">{{planification.driver.email}}</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <span id="phone" class="form-control">{{planification.driver.phone}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="hireDate">Hire date:</label>
+                    <span id="hireDate" class="form-control">{{planification.driver.hireDate | date: 'dd-MM-yyyy'}}</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="comm">Status:</label>
+                    <span id="comm" class="form-control">{{planification.driver.status.name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group text-center">
+                    <a class="btn btn-primary" role="button" ng-click="back()">Back</a>
+                    <a class="btn btn-success" role="button" ng-show="planificationInTransit" ng-click="deliver()">Finish Delivery</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
